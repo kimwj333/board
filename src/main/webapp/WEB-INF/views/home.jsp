@@ -7,10 +7,11 @@
 <title>Home</title>
 </head>
 <body>
-<h1>°³¹ßÀÚ 20±â ±è¿øÁß °Ô½ÃÆÇ ÀÔ´Ï´Ù.</h1>
+<h1>ê°œë°œìž 20ê¸° ê¹€ì›ì¤‘ ê²Œì‹œíŒ ìž…ë‹ˆë‹¤.</h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<a href="/addArticle">ÀÔ·ÂÈ­¸é</a>
-<a href="/articleList">¸®½ºÆ®</a>
+
+<a href="/addArticle">ìž…ë ¥í™”ë©´</a>
+<a href="/articleList">ë¦¬ìŠ¤íŠ¸</a>
 </body>
 </html>
