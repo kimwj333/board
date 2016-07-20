@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wj.kim.board.repository.ArticleMapper">
+		
+	<insert id="insertArticle" parameterType="wj.kim.board.model.Article">
+		INSERT INTO
+			article(
+				article_title,
+				article_content,
+				article_pw,
+				article_date,
+				article_writer
+			) VALUES(
+				#{articleTitle},
+				#{articleContent},
+				#{articlePw},
+				NOW(),
+				#{articleWriter}
+			)
+	</insert>
+	
+	<select id="articleContent" parameterType="wj.kim.board.model.Article" resultType="wj.kim.board.model.Article">
+		SELECT
+			article_no as articleNo,
+			article_title as articleTitle,
+			article_content as articleContent,
+			article_pw as articlePw,
+			article_date as articleDate,
+			article_writer as articleWriter 
+		FROM
+			article
+		WHERE
+			article_no=#{articleNo}
+	</select>
+	
+	<select id="selectTotalCount" resultType="Integer">
+        SELECT COUNT(*) FROM article
+    </select>
+	
+	<select id="selectArticleList" parameterType="java.util.Map" resultType="wj.kim.board.model.Article">
+        SELECT 
+        	article_no as articleNo,
+			article_title as articleTitle,
+			article_content as articleContent,
+			article_pw as articlePw,
+			article_date as aiticleDate,
+			article_writer as articleWriter
+        FROM
+        	article
+        <where>
+            <if test="word != null">
+                article_title like CONCAT('%',#{word},'%')
+            </if>
+        </where>
+        ORDER BY article_no DESC
+        LIMIT #{pageHelper.startRow}, #{pageHelper.linePerPage}
+    </select>
+	
+</mapper>
