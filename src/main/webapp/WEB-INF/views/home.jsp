@@ -10,7 +10,7 @@
 <h1>개발자 20기 김원중 게시판 입니다.</h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-
+//커밋 테스트예용~
 <a href="/addArticle">입력화면</a>
 <a href="/articleList">리스트</a>
 </body>
